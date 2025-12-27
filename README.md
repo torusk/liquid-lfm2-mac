@@ -2,7 +2,10 @@
 
 Liquid AIが開発した最新の軽量言語モデル **LFM2-2.6B-Exp** を、Apple Silicon (M1/M2/M3/M4) 搭載のMac上で実行するためのスクリプトです。
 
-### 🚀 特徴
+### � 開発の経緯
+2025/12/27現在、Hugging Faceからダウンロードしたモデルを LM Studio でロードしようとするとエラーが発生する場合があったため、ターミナルでサクッと動作確認とチャットができるように作成しました。
+
+### �🚀 特徴
 - **GPT-4級の知能**: 小型モデルながら、特定の指示遂行能力（IFEval）や推論において、GPT-4に匹敵、あるいはGPT-3.5を大きく超える性能を誇ります。
 - **完全オフライン動作**: 初回のモデルダウンロード後は、インターネット環境がなくてもローカルで安全かつ高速に実行可能です。
 - **Apple Siliconに最適化**: PyTorchのMPS（Metal Performance Shaders）を利用し、M4チップ等での `float16` 演算により圧倒的なパフォーマンスを発揮します。
@@ -66,7 +69,7 @@ python -m huggingface_hub.cli delete-cache
 ## ライセンス (License)
 
 ### コード (This Repository)
-本リポジトリに含まれるスクリプト（chat.py）は **MIT License** の下で公開されています。
+本リポジトリに含まれるスクリプト（chat.py）は **MIT License** の下で公開しています。
 
 ### モデル (Model)
 使用しているモデル `LiquidAI/LFM2-2.6B-Exp` のライセンスは、Liquid AI社の規定に従います。
