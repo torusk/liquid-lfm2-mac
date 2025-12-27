@@ -27,8 +27,8 @@ cd liquid-lfm2-mac
 pip install -r requirements.txt
 ```
 
-### 3. Hugging Faceへのログイン
-モデルをダウンロードするために、Hugging Faceのアクセストークン（Read権限）が必要です。
+### 3. Hugging Faceへのログイン（推奨）
+必須ではありませんが、ログインしておくことでモデルのダウンロードをより安定・高速に行うことができます。Hugging Faceのアクセストークン（Read権限）を用意して実行してください。
 ```bash
 python -c "from huggingface_hub import login; login()"
 ```
@@ -66,7 +66,7 @@ python -m huggingface_hub.cli delete-cache
 ## ライセンス (License)
 
 ### コード (This Repository)
-本リポジトリに含まれるスクリプト（chat.py）は **MIT License** の下で公開されています。
+本リポジトリに含まれるスクリプト（chat.py）は **MIT License** の下で公開しています。
 
 ### モデル (Model)
 使用しているモデル `LiquidAI/LFM2-2.6B-Exp` のライセンスは、Liquid AI社の規定に従います。
