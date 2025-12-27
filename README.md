@@ -2,7 +2,10 @@
 
 Liquid AIが開発した最新の軽量言語モデル **LFM2-2.6B-Exp** を、Apple Silicon (M1/M2/M3/M4) 搭載のMac上で実行するためのスクリプトです。
 
-PyTorchのMPS（Metal Performance Shaders）アクセラレーションを利用し、M4チップに最適化された `float16` 精度で高速に動作します。
+### 🚀 特徴
+- **GPT-4級の知能**: 小型モデルながら、特定の指示遂行能力（IFEval）や推論において、GPT-4に匹敵、あるいはGPT-3.5を大きく超える性能を誇ります。
+- **完全オフライン動作**: 初回のモデルダウンロード後は、インターネット環境がなくてもローカルで安全かつ高速に実行可能です。
+- **Apple Siliconに最適化**: PyTorchのMPS（Metal Performance Shaders）を利用し、M4チップ等での `float16` 演算により圧倒的なパフォーマンスを発揮します。
 
 ## 動作環境
 
@@ -40,6 +43,19 @@ HF_HUB_ENABLE_HF_TRANSFER=1 python chat.py
 
 - **終了方法**: チャット入力欄で `exit` と入力するか、`Ctrl + C` を押します。
 
+## カスタマイズ
+
+`chat.py` 内の `GEN_CONFIG` を書き換えることで、応答の長さを変えたり、AIの性格（創造性）を調整したりできます。
+
+```python
+GEN_CONFIG = {
+    "max_new_tokens": 1024,  # 応答の最大文字数
+    "temperature": 0.7,      # 創造性（0.0〜1.0）
+    "do_sample": True,
+    "top_p": 0.9,
+}
+```
+
 ## トラブルシューティング
 
 キャッシュエラーなどでダウンロードが止まる場合は、以下のコマンドでキャッシュを削除して再試行してください。
@@ -53,7 +69,6 @@ python -m huggingface_hub.cli delete-cache
 本リポジトリに含まれるスクリプト（chat.py）は **MIT License** の下で公開されています。
 
 ### モデル (Model)
-使用しているモデル `LiquidAI/LFM2-2.6B-Exp` のライセンスは、Liquid AI社の規定に従います。詳細は公式モデルカードをご確認ください。
-
+使用しているモデル `LiquidAI/LFM2-2.6B-Exp` のライセンスは、Liquid AI社の規定に従います。
 - **Model**: [LiquidAI/LFM2-2.6B-Exp](https://huggingface.co/LiquidAI/LFM2-2.6B-Exp)
-- **License**: Liquid AI Community License (See the model card for details)
+- **License**: Liquid AI Community License
